@@ -1,0 +1,116 @@
+.maintenance {
+  @apply w-screen h-6 flex flex-col justify-center items-center transition-all bg-[#FF3B30];
+  > p {
+    @apply text-white;
+  }
+}
+
+.main {
+  @apply w-screen h-screen flex flex-col items-center transition-all bg-[#1e1e1e] overflow-hidden;
+  animation: 0.5s fadeIn ease-in-out;
+}
+
+.items {
+  @apply flex justify-between w-full h-full p-10 bg-[#121212] rounded-t-3xl relative transition-all;
+  animation: 0.5s fadeIn ease-in-out;
+  outline: 1px solid #333333;
+}
+
+.indicator {
+  @apply block absolute bg-[#1E1E1E] rounded-3xl h-[94px] left-[32px] transition-all;
+  border: 1px solid #333333;
+  width: var(--width);
+  top: var(--top);
+}
+
+.item {
+  @apply flex flex-col gap-[18px] z-10 w-[428px] min-w-[428px] transition-all;
+  animation: 0.5s fadeIn ease-in-out;
+
+  > h1 {
+    @apply text-center font-bold text-2xl text-[#ffffff];
+  }
+
+  > ul {
+    @apply flex flex-col justify-between gap-[10px];
+
+    > li {
+      @apply flex text-center justify-between items-center gap-[10px] h-[78px];
+
+      > div {
+        @apply flex flex-col items-center justify-center gap-1;
+
+        > p {
+          &:first-child {
+            @apply font-bold text-[#ffffff80] text-base;
+          }
+          &:nth-child(2) {
+            @apply font-bold text-[#ffffff40] text-sm leading-[10px];
+          }
+        }
+      }
+
+      > p {
+        @apply flex flex-col text-center justify-center;
+
+        &:first-child,
+        &:nth-child(3) {
+          @apply font-bold text-[#ffffff80] text-xl w-[60px] h-[60px];
+        }
+      }
+
+      &.active {
+        > p {
+          color: #fff;
+        }
+
+        > div {
+          > p {
+            &:first-child {
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &_active {
+    > ul > li > p {
+      color: #fff;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.sceleton {
+  @apply inline-block relative bg-[#222222] overflow-hidden rounded-xl;
+  animation: 0.5s fadeIn ease-in-out;
+
+  &::after {
+    @apply absolute translate-x-[-100%] top-0 right-0 bottom-0 left-0;
+    background-image: linear-gradient(
+      90deg,
+      rgba(#fff, 0) 0,
+      rgba(#fff, 0.1) 20%,
+      rgba(#fff, 0.2) 60%,
+      rgba(#fff, 0)
+    );
+    animation: shimmer 2s infinite;
+    content: "";
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}

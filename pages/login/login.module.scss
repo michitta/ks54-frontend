@@ -1,0 +1,87 @@
+.main {
+  @apply w-screen h-screen flex flex-col items-center justify-center bg-[#121212] gap-10 text-center;
+  animation: 0.5s fadeIn ease-in-out;
+
+  > div {
+    &:first-child {
+      @apply flex flex-col gap-4 items-center justify-center;
+
+      > p {
+        @apply font-extrabold text-base text-[#ffffff80] leading-3 inline-grid;
+      }
+
+      > h1 {
+        @apply font-extrabold text-[32px] text-white leading-[44px] h-[68px] w-[428px] content-center inline-grid;
+      }
+    }
+
+    &:nth-child(3) {
+      @apply flex flex-col gap-5 items-center justify-center;
+    }
+
+    &:nth-child(4) {
+      @apply flex flex-col gap-3 items-center justify-center;
+
+      > p {
+        &:first-child {
+          @apply font-semibold text-base text-[#ffffffbf] inline-grid leading-3;
+        }
+
+        &:nth-child(2) {
+          @apply font-medium text-base text-[#ffffff80] inline-grid leading-3;
+        }
+      }
+    }
+  }
+
+  > p {
+    @apply font-semibold text-base text-[#ffffffbf] max-w-[380px] h-[34px] leading-[18.86px] inline-grid;
+  }
+
+  > form {
+    @apply flex flex-col gap-5 items-center justify-center;
+  }
+
+  > button {
+    @apply transition-all text-[16px] bg-white text-[#000000] font-bold rounded-xl w-[275px] h-[52px];
+
+    &:hover {
+      @apply transition-all text-white bg-transparent;
+      border: 1px solid #ffffff;
+    }
+  }
+}
+
+.input {
+  @apply bg-[#1e1e1e] w-[275px] h-[52px] rounded-xl text-[#FFFFFF80] font-bold text-base;
+  border: 1px solid #333333;
+  padding: 0 20px;
+
+  &::placeholder {
+    @apply font-semibold text-[#ffffff80];
+  }
+
+  &:focus {
+    outline: none;
+    color: #ffffff;
+    background: #222222;
+  }
+}
+
+.error {
+  @apply text-[#FF463CBF];
+  border: 1px solid #FF463CBF;
+
+  &::placeholder {
+    @apply text-[#FF463CBF];
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -52,7 +52,7 @@ const Home: NextPage = () => {
 
     if (schedule?.data) {
       setPages(
-        Math.round(
+        Math.ceil(
           schedule.data.filter((x) => x.items?.length > 0).length /
           ((width - 64) / 428)
         )
